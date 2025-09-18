@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Klavye Kısayolları • Basit TR</title>
+    <meta name="theme-color" content="#0b0f17" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Klavye Kısayolları</h1>
+      <input id="q" placeholder="Ara: Windows, Chrome…" />
+      <div id="chips" class="chips" aria-label="Kaynak filtreleri"></div>
+      <div class="actions">
+        <label for="theme" class="visually-hidden">Tema</label>
+        <select id="theme" title="Tema">
+          <option value="system">Sistem</option>
+          <option value="dark" selected>Koyu</option>
+          <option value="light">Açık</option>
+        </select>
+        <label for="sort" class="visually-hidden">Sırala</label>
+        <select id="sort" title="Sıralama">
+          <option value="relevance">Varsayılan</option>
+          <option value="group-asc">Gruba göre (A→Z)</option>
+          <option value="desc-asc">Açıklama (A→Z)</option>
+          <option value="desc-desc">Açıklama (Z→A)</option>
+        </select>
+        <label title="Sadece favoriler" style="display:flex;align-items:center;gap:6px">
+          <input id="favOnly" type="checkbox" /> Favoriler
+        </label>
+        <button id="expandAll" title="Tüm grupları aç">Aç</button>
+        <button id="collapseAll" title="Tüm grupları daralt">Daralt</button>
+        <button id="exportJson" title="Görüntüyü JSON olarak dışa aktar">Dışa Aktar</button>
+        <button id="importJson" title="JSON içe aktar">İçe Aktar</button>
+        <input id="fileInput" type="file" accept="application/json" style="display:none" />
+        <button id="addFromLib" title="Kütüphaneden ekle">Kütüphaneden Ekle</button>
+      </div>
+    </header>
+    <main id="app"></main>
+    <footer>
+      <small>Basit sürüm • TR</small>
+    </footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+  </html>
+
+

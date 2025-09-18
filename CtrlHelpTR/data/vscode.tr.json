@@ -1,0 +1,53 @@
+[
+  {
+    "group": "Düzenleme",
+    "shortcuts": [
+      { "desc": "Kes/Kopyala/Yapıştır", "keys": [["Ctrl","X"],["Ctrl","C"],["Ctrl","V"]] },
+      { "desc": "Geri al / Yinele", "keys": [["Ctrl","Z"],["Ctrl","Y"]] },
+      { "desc": "Satırı sil", "keys": [["Ctrl","Shift","K"]] },
+      { "desc": "Satır ekle (alt/üst)", "keys": [["Ctrl","Enter"],["Ctrl","Shift","Enter"]] },
+      { "desc": "Satır yorumu aç/kapat", "keys": [["Ctrl","/"]] },
+      { "desc": "Çoklu imleç (alt)", "keys": [["Alt","Tık"]] },
+      { "desc": "Aynı sözcüğü seç ve çoklu imleç", "keys": [["Ctrl","D"]] },
+      { "desc": "Tüm eşleşmeleri seç", "keys": [["Ctrl","Shift","L"]] },
+      { "desc": "Satırı kopyala/aşağı-yukarı taşı", "keys": [["Shift","Alt","Aşağı"],["Shift","Alt","Yukarı"],["Alt","Aşağı"],["Alt","Yukarı"]] },
+      { "desc": "Satırı girinti/çıkıntı", "keys": [["Ctrl","]"],["Ctrl","["]] }
+    ]
+  },
+  {
+    "group": "Gezinme",
+    "shortcuts": [
+      { "desc": "Dosya bul (Hızlı Aç)", "keys": [["Ctrl","P"]] },
+      { "desc": "Satıra git", "keys": [["Ctrl","G"]] },
+      { "desc": "Sembole git", "keys": [["Ctrl","Shift","O"]] },
+      { "desc": "Tanıma git", "keys": [["F12"]] },
+      { "desc": "Geri", "keys": [["Alt","Sol"]] },
+      { "desc": "İleri", "keys": [["Alt","Sağ"]] }
+    ]
+  },
+  {
+    "group": "Görünüm",
+    "shortcuts": [
+      { "desc": "Tam ekran", "keys": [["F11"]] },
+      { "desc": "Kenar çubuğu", "keys": [["Ctrl","B"]] },
+      { "desc": "Terminali aç/kapat", "keys": [["Ctrl","`"]] },
+      { "desc": "Komut Paleti", "keys": [["Ctrl","Shift","P"]] },
+      { "desc": "Dosya Gezgini görünümü", "keys": [["Ctrl","Shift","E"]] },
+      { "desc": "Arama görünümü", "keys": [["Ctrl","Shift","F"]] },
+      { "desc": "Kaynak Denetimi", "keys": [["Ctrl","Shift","G"]] },
+      { "desc": "Hata Ayıklama", "keys": [["Ctrl","Shift","D"]] },
+      { "desc": "Eklentiler", "keys": [["Ctrl","Shift","X"]] }
+    ]
+  },
+  {
+    "group": "Dosya",
+    "shortcuts": [
+      { "desc": "Yeni dosya", "keys": [["Ctrl","N"]] },
+      { "desc": "Kaydet", "keys": [["Ctrl","S"]] },
+      { "desc": "Farklı kaydet", "keys": [["Ctrl","Shift","S"]] },
+      { "desc": "Tümünü kaydet", "keys": [["Ctrl","K"],["S"]] }
+    ]
+  }
+]
+
+

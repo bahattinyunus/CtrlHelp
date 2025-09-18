@@ -1,0 +1,51 @@
+[
+  {
+    "group": "Sekmeler ve Pencereler",
+    "shortcuts": [
+      { "desc": "Yeni sekme", "keys": [["Ctrl","T"]] },
+      { "desc": "Yeni pencere", "keys": [["Ctrl","N"]] },
+      { "desc": "Gizli pencere", "keys": [["Ctrl","Shift","N"]] },
+      { "desc": "Kapat: geçerli sekme", "keys": [["Ctrl","W"]] },
+      { "desc": "Son kapatılanı yeniden aç", "keys": [["Ctrl","Shift","T"]] },
+      { "desc": "Sekmeler arası geçiş", "keys": [["Ctrl","Tab"],["Ctrl","Shift","Tab"]] }
+    ]
+  },
+  {
+    "group": "Gezinme ve Arama",
+    "shortcuts": [
+      { "desc": "Adres çubuğuna git", "keys": [["Ctrl","L"]] },
+      { "desc": "Sayfada bul", "keys": [["Ctrl","F"]] },
+      { "desc": "Geçmiş", "keys": [["Ctrl","H"]] },
+      { "desc": "İndirilenler", "keys": [["Ctrl","J"]] },
+      { "desc": "Geliştirici araçları", "keys": [["Ctrl","Shift","I"]] },
+      { "desc": "İşaretlenmişler", "keys": [["Ctrl","Shift","O"]] },
+      { "desc": "Geçmiş (tam)", "keys": [["Ctrl","H"]] }
+    ]
+  },
+  {
+    "group": "Sayfa",
+    "shortcuts": [
+      { "desc": "Yenile", "keys": [["F5"]] },
+      { "desc": "Yakınlaştır", "keys": [["Ctrl","+"]] },
+      { "desc": "Uzaklaştır", "keys": [["Ctrl","-"]] },
+      { "desc": "Yakınlaştırmayı sıfırla", "keys": [["Ctrl","0"]] },
+      { "desc": "Yer işareti ekle", "keys": [["Ctrl","D"]] },
+      { "desc": "Sayfayı kaydet", "keys": [["Ctrl","S"]] },
+      { "desc": "Yazdır", "keys": [["Ctrl","P"]] },
+      { "desc": "Kaynak görüntüle", "keys": [["Ctrl","U"]] },
+      { "desc": "Tam ekran", "keys": [["F11"]] }
+    ]
+  },
+  {
+    "group": "Sekme Yönetimi",
+    "shortcuts": [
+      { "desc": "Sekmeyi kapat", "keys": [["Ctrl","W"],["Ctrl","F4"]] },
+      { "desc": "Sağdaki sekmeye git", "keys": [["Ctrl","Tab"]] },
+      { "desc": "Soldaki sekmeye git", "keys": [["Ctrl","Shift","Tab"]] },
+      { "desc": "Belirli sekmeye git (1-8)", "keys": [["Ctrl","1"],["Ctrl","2"],["Ctrl","3"]] },
+      { "desc": "Son sekmeye git", "keys": [["Ctrl","9"]] }
+    ]
+  }
+]
+
+

@@ -1,0 +1,37 @@
+{
+  "name": "klavye-kisayollari",
+  "version": "1.0.0",
+  "description": "Klavye kısayolları - Masaüstü (Electron)",
+  "main": "main.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder -w"
+  },
+  "build": {
+    "productName": "Klavye Kısayolları",
+    "appId": "com.example.klavye-kisayollari",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "app/**/*",
+      "main.js",
+      "preload.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron": "^28.3.1",
+    "electron-builder": "^24.13.3"
+  }
+}
+
+
+

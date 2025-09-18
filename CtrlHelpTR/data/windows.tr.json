@@ -1,0 +1,69 @@
+[
+  {
+    "group": "Genel",
+    "shortcuts": [
+      { "desc": "Kes", "keys": [["Ctrl","X"]] },
+      { "desc": "Kopyala", "keys": [["Ctrl","C"]] },
+      { "desc": "Yapıştır", "keys": [["Ctrl","V"],["Shift","Insert"]] },
+      { "desc": "Geri al", "keys": [["Ctrl","Z"]] },
+      { "desc": "Tümünü seç", "keys": [["Ctrl","A"]] },
+      { "desc": "Sil", "keys": [["Delete"]] },
+      { "desc": "Yeniden yap", "keys": [["Ctrl","Y"]] },
+      { "desc": "Ad değiştir", "keys": [["F2"]] },
+      { "desc": "Masaüstünü göster/gizle", "keys": [["Win","D"]] }
+    ]
+  },
+  {
+    "group": "Pencere Yönetimi",
+    "shortcuts": [
+      { "desc": "Başlat menüsünü aç/kapat", "keys": [["Win"]] },
+      { "desc": "Görev görünümünü aç", "keys": [["Win","Tab"]] },
+      { "desc": "Pencereler arasında geçiş", "keys": [["Alt","Tab"]] },
+      { "desc": "Pencereyi büyüt", "keys": [["Win","Yukarı"]] },
+      { "desc": "Pencereyi küçült/ekrandan kaldır", "keys": [["Win","Aşağı"]] },
+      { "desc": "Sola yasla", "keys": [["Win","Sol"]] },
+      { "desc": "Sağa yasla", "keys": [["Win","Sağ"]] },
+      { "desc": "Ekranlar arasında taşı", "keys": [["Win","Shift","Sağ"],["Win","Shift","Sol"]] },
+      { "desc": "Sanal masaüstü: yeni", "keys": [["Win","Ctrl","D"]] },
+      { "desc": "Sanal masaüstü: sola/sağa geç", "keys": [["Win","Ctrl","Sol"],["Win","Ctrl","Sağ"]] },
+      { "desc": "Sanal masaüstü: kapat", "keys": [["Win","Ctrl","F4"]] },
+      { "desc": "Tüm pencereleri küçült", "keys": [["Win","M"]] },
+      { "desc": "Küçültülmüşleri geri getir", "keys": [["Win","Shift","M"]] },
+      { "desc": "Yerleşim (Snap) menüsü", "keys": [["Win","Z"]] },
+      { "desc": "Etkin pencereyi kapat", "keys": [["Alt","F4"]] }
+    ]
+  },
+  {
+    "group": "Sistem",
+    "shortcuts": [
+      { "desc": "Dosya Gezgini", "keys": [["Win","E"]] },
+      { "desc": "Ayarlar", "keys": [["Win","I"]] },
+      { "desc": "Çalıştır", "keys": [["Win","R"]] },
+      { "desc": "Ara", "keys": [["Win","S"]] },
+      { "desc": "Ekran alıntısı", "keys": [["Win","Shift","S"]] },
+      { "desc": "Görev Yöneticisi", "keys": [["Ctrl","Shift","Esc"]] },
+      { "desc": "Bilgisayarı kilitle", "keys": [["Win","L"]] },
+      { "desc": "Hızlı ayarlar", "keys": [["Win","A"]] },
+      { "desc": "Bildirimler", "keys": [["Win","N"]] },
+      { "desc": "Güç menüsü (Hızlı Bağlantı)", "keys": [["Win","X"]] },
+      { "desc": "Pano geçmişi", "keys": [["Win","V"]] },
+      { "desc": "Emoji/GIF paneli", "keys": [["Win","."] ,["Win",";"]] },
+      { "desc": "Ekran görüntüsü kaydet", "keys": [["Win","PrtScn"]] },
+      { "desc": "Ekran görüntüsü panoya", "keys": [["PrtScn"]] },
+      { "desc": "Büyüteç aç/kapat", "keys": [["Win","+"] ,["Win","-"]] },
+      { "desc": "Oyun çubuğu", "keys": [["Win","G"]] },
+      { "desc": "Giriş dili düzenleri", "keys": [["Win","Boşluk"]] }
+    ]
+  },
+  {
+    "group": "Dosya Gezgini",
+    "shortcuts": [
+      { "desc": "Adres çubuğuna git", "keys": [["Alt","D"],["Ctrl","L"]] },
+      { "desc": "Özellikler", "keys": [["Alt","Enter"]] },
+      { "desc": "Yeni klasör", "keys": [["Ctrl","Shift","N"]] },
+      { "desc": "Bağlam menüsü", "keys": [["Shift","F10"]] }
+    ]
+  }
+]
+
+
