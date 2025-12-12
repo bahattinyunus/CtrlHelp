@@ -1,21 +1,44 @@
-## Klavye Kısayolları (Basit TR)
+## Klavye Kısayolları • TR (Web + Electron)
 
-Basit, hafif ve çevrimdışı çalışabilen klavye kısayolları görüntüleyicisi. Web (statik) ve Electron masaüstü sürümüyle gelir.
+Hafif, hızlı ve çevrimdışı çalışabilen klavye kısayolları görüntüleyicisi. Statik web olarak çalışır, ayrıca masaüstü için Electron sürümü vardır.
 
-### Hızlı Başlangıç (Web)
+### Neler Sunar?
 
-PowerShell ile yerel sunucu:
+- **Anlık arama**: Kaynak, grup veya açıklamada yazdıkça filtreleme
+- **Kaynağa göre filtre**: Windows, Google Chrome, VS Code vb. arasında çabuk geçiş
+- **Grupları yönet**: Tek tıkla Aç/Daralt; kalıcı olarak hatırlanır
+- **Sıralama seçenekleri**: Gruba veya açıklamaya göre A→Z / Z→A
+- **Panoya kopyala**: Tuş kombinasyonuna tıklayın, anında kopyalansın
+- **Dışa/İçe aktar**: Ekrandaki veriyi JSON indir; JSON’dan geri yükle
+- **Favoriler**: Yıldızla ekle/çıkar, yalnızca favorileri göster
+- **Tema**: Sistem/Koyu/Açık; tercihlerin tamamı `localStorage` ile kalıcı
+- **PWA**: Servis worker ile çevrimdışı kullanılabilir (http/https altında)
 
+---
+
+## Kurulum ve Çalıştırma
+
+### Web (Yerel Sunucu ile önerilir)
+
+- PowerShell:
 ```powershell
 cd "CtrlHelpTR"
 powershell -ExecutionPolicy Bypass -File .\run.ps1
-# Farklı port:
+# Özel port
 powershell -ExecutionPolicy Bypass -File .\run.ps1 -Port 8080
 ```
 
-Python olmadan da doğrudan `index.html` açılır, ancak bazı özellikler (servis worker) devre dışı olabilir.
+- Komut Dosyası (CMD):
+```bat
+cd /d CtrlHelpTR
+run.cmd
+```
 
-### Hızlı Başlangıç (Electron)
+- Doğrudan dosya açma: `index.html` dosyasını çift tıklayabilirsiniz; ancak servis worker `file://` altında çalışmaz.
+
+### Electron (Masaüstü)
+
+Gereksinimler: Node.js (öneri: 18+)
 
 ```powershell
 cd "DesktopApp"
@@ -23,86 +46,120 @@ npm install
 npm run start
 ```
 
-Electron penceresi `CtrlHelpTR/index.html` dosyasını yükler. Paketlemek için:
-
+Paketlemek (Windows NSIS):
 ```powershell
 npm run build
 ```
+Çıktı `DesktopApp/dist` altına düşer. Electron penceresi kardeş klasördeki `CtrlHelpTR/index.html`'i yükler.
 
-Çıktı `DesktopApp/dist` altına üretilir (Windows NSIS).
+---
 
-### Özellikler
+## Kullanım İpuçları
 
-- Hızlı arama (kaynak, grup, açıklama)
-- Kaynağa göre filtreleme (Windows, Chrome, VS Code vs.)
-- Grup aç/kapa kontrolü (Aç/Daralt)
-- Sıralama: gruba göre veya açıklamaya göre (A→Z/Z→A)
-- Dışa aktarma: Görüntülenen veriyi JSON olarak indir
-- İçe aktarma: JSON dosyasından veri yükle
-- Kısayol üstüne tıklayarak panoya kopyalama
-- Tema seçici: Sistem/Koyu/Açık, kalıcı
-- Favoriler: Yıldızla ekle/çıkart, sadece favorileri göster filtresi
-- Kalıcı ayarlar: seçili kaynaklar, daraltılmış gruplar, sıralama, favori filtresi
+- **Arama**: `Ctrl+K` ile arama kutusunu odaklayın. Yazdıkça sonuçlar filtrelenir.
+- **Filtreler**: Başlıktaki çip butonlarına tıklayarak kaynakları aktif/pasif yapın.
+- **Sıralama**: Açılır menüden gruba veya açıklamaya göre sıralayın.
+- **Favoriler**: Yıldız butonuyla ekleyin; "Favoriler" kutusunu işaretleyerek yalnız favorileri görüntüleyin.
+- **Kopyalama**: Her bir tuş kombinasyonunu tıklayarak panoya kopyalayın.
+- **Dışa/İçe Aktarım**: JSON indirip daha sonra aynı biçimde geri yükleyebilirsiniz.
 
-### Dizinyapısı
+---
 
+## Veri Kaynakları
+
+Uygulama, varsayılan olarak `data/` klasöründen TR verilerini yükler. Sunucu erişilemezse, uygulama içi küçük bir yedek veri kümesi devreye girer.
+
+### JSON Şeması (özet)
+
+```json
+{
+  "groups": [
+    {
+      "source": "Windows",
+      "group": "Genel",
+      "shortcuts": [
+        { "desc": "Kopyala", "keys": [["Ctrl","C"]] },
+        { "desc": "Yapıştır", "keys": [["Ctrl","V"], ["Shift","Insert"]] }
+      ]
+    }
+  ]
+}
 ```
+
+- **group**: Grup adı
+- **shortcuts[].desc**: Kısayol açıklaması
+- **shortcuts[].keys**: Çoklu kombinasyon desteği; her kombinasyon kendi dizisidir
+
+Uygulama içinde ise her grup, render aşamasında bir `source` alanı ile eşleştirilir.
+
+---
+
+## Kütüphaneden Ekle (Electron’da)
+
+Masaüstünde, üst menüdeki "Kütüphaneden Ekle" butonu ile `CtrlHelpApp/Shortcuts` klasöründeki resmi kısayol kütüphanesinden uygulama seçebilirsiniz.
+
+- `DesktopApp/preload.js`, `CtrlHelpApp/Shortcuts/apps.json` dosyasını okur.
+- Seçtiğiniz uygulamanın kısayolları dönüştürülerek mevcut listeye eklenir.
+- Çalışması için depo düzeninin şu şekilde olması önerilir:
+
+```text
+<repo-kök>/
+  CtrlHelpApp/
+    Shortcuts/
+      apps.json
+      ...
+  CtrlHelpTR/
+  DesktopApp/
+```
+
+Kütüphane bulunamazsa buton kısa bir uyarı gösterir.
+
+---
+
+## PWA ve Çevrimdışı Kullanım
+
+- Servis worker yalnızca `http://` veya `https://` altında kaydolur; `file://` altında devre dışıdır.
+- Önbellek adı: `klavye-kisayollari-v1`. Yeni sürümlerde otomatik temizlik yapılır.
+- "Uygulama olarak yükle" seçeneği tarayıcıya göre değişebilir.
+
+---
+
+## Proje Yapısı
+
+```text
 CtrlHelpTR/
-  index.html       # Arayüz
-  styles.css       # Stil
-  app.js           # Mantık ve veri yükleme
-  data/            # TR verileri (json)
-  sw.js            # Servis worker (yalnızca http/https)
+  index.html
+  styles.css
+  app.js
+  sw.js
+  data/
 DesktopApp/
-  main.js          # Electron ana işlem
-  preload.js       # Renderer bridge
-  package.json     # Komutlar ve build ayarları
+  main.js
+  preload.js
+  package.json
 ```
 
-### Notlar
+---
 
-- Electron ile dosya protokolünde servis worker çalışmadığı için `app.js` içinde yalnızca http/https altında kayıt yapılır.
-- Güvenlik uyarıları geliştirme modunda görünebilir; paketlendiğinde kaybolur. Üretimde sıkı CSP önerilir.
-- Kısayol: `Ctrl+K` arama alanını odaklar.
+## Geliştirme Notları
 
-### Lisans
-## Eğitim: Bu uygulamada kullanılan teknolojiler
+- **Tema**: `:root` değişkenleri ve `[data-theme]` ile Koyu/Açık + Sistem modu
+- **Durum kalıcılığı**: `localStorage` üzerinden tema, filtreler, daraltılmış gruplar, sıralama, favoriler
+- **Erişilebilirlik**: Etiketler, odak sırası; `aria-live` ile toast bildirimleri
+- **Performans**: Filtrele → sırala → DOM üret; minimal yeniden akış
 
-### 1) HTML
-- "İskelet" yapıyı sağlar. `index.html` içinde `<header>`, `<main>`, `<footer>` bölümleri tanımlanır.
-- Erişilebilirlik (aria-label), semantik etiketler ve for/id bağları ile daha iyi UX.
+Elektron tarafında donanım hızlandırma devre dışı ve konsol logları aktiftir. Üretim için sıkı CSP ve uzak içerik kısıtları önerilir.
 
-### 2) CSS (Değişkenler ve Tema)
-- `:root` değişkenleri ve `[data-theme]` ile açık/koyu tema.
-- Grid ve flexbox ile düzen. Bileşen odaklı sınıflar (`.chips`, `.key`, `.toast`).
+---
 
-### 3) Vanilla JS (Frameworksüz)
-- Veri yükleme: `fetch` ile `data/*.json` kaynaklarını çekme, başarısızlıkta gömülü yedek veri.
-- Durum yönetimi: Basit değişkenler ve `localStorage` ile kalıcılık (tema, filtreler, favoriler, sıralama).
-- Olaylar: input, click, change, keyboard (Ctrl+K) dinleyicileri.
-- Render akışı: Filtrele → Sırala → DOM oluştur. Performans için minimal yeniden akış.
+## SSS / Bilinen Sınırlamalar
 
-### 4) Service Worker (PWA mantığı)
-- Yalnızca http/https altında kayıt olur. `file://` altında devre dışı. Önbellekleme eğitim amaçlı basit kurgulanabilir.
+- `file://` altında servis worker çalışmaz; yerel sunucu kullanın (`run.ps1` / `run.cmd`).
+- Panoya kopyalama bazı tarayıcı politikalarına bağlı olarak engellenebilir; yerel/https altında çalıştırın.
 
-### 5) Electron (Masaüstü kabuğu)
-- Chromium + Node.js birleşimi. `DesktopApp/main.js` tarayıcı penceresi açar ve `CtrlHelpTR/index.html`'i yükler.
-- `preload.js` ile renderer’a güvenli köprü. Donanım hızlandırma kapatma, loglama bayrakları.
-- Paketleme: `electron-builder` ile Windows NSIS kurulumu (`npm run build`).
+---
 
-### 6) JSON veri formatı
-- Basit, okunabilir yapı: `[{ group, shortcuts: [{ desc, keys: [[..]] }] }]`.
-- Çoklu tuş kombinasyonları `keys` içinde dizi-dizileri olarak tutulur.
-
-### 7) Erişilebilirlik ve UX
-- Klavye ile kullanım: Ctrl+K, buton odak sırası, buton etiketleri.
-- Görsel geri bildirimler: highlight, toast, aktif chip durumu.
-
-### 8) Güvenlik İpuçları (Özet)
-- Geliştirme modunda Electron CSP uyarıları normaldir; paketlemede ortadan kalkar.
-- Üretimde sıkı CSP başlığı, uzak içerik kısıtları ve otomatik güncelleme imzaları önerilir.
-
+## Lisans
 
 MIT
-
 
